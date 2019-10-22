@@ -1,2 +1,20 @@
-<h1>Students#show</h1>
-<p>Find me in app/views/students/show.html.erb</p>
+<h1>Students#index</h1>
+<p>You have selected -> <%= @student.fname %> <%= @student.lname %></p>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>University Name</th>
+        <th>Country</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+      <tr>
+        <td><%=@student.university.name%></td>
+        <td><%=@student.university.country%></td>
+        <td><%=@student.university.webpage%></td>
+      </tr>
+  </table>
+
+  <% map_url = "https://image.maps.api.here.com/mia/1.6/mapview?app_id=bL1d7bg8QUUxbBqhUe3s&app_code=I5yJwy4TZeC_-x7UvBgSnw&lat=#{@student.university.lat}&lon=#{@student.university.long}&vt=0&z=11&h=600&w=800"%>
+  <%= image_tag(map_url, alt: "Uni location") %>

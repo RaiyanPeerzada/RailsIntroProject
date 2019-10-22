@@ -1,2 +1,23 @@
 <h1>Universities#show</h1>
-<p>Find me in app/views/universities/show.html.erb</p>
+<p>You have selected -> <%= @university.name %>
+
+<h1>Universities#index</h1>
+<p>Find me in app/views/universities/index.html.erb</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Student id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Degree</th>
+      </tr>
+    </thead>
+    <% @university.students.each do |student| %>
+      <tr>
+        <td><%=student.id%></td>
+        <td><%=student.fname%></td>
+        <td><%=student.lname%></td>
+        <td><%=student.degree%></td>
+      </tr>
+    <%end%>
+  </table>

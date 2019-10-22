@@ -8,6 +8,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+University.destroy_all
+Student.destroy_all
 # University data
 uniAPI = 'http://universities.hipolabs.com/search?country=United%20States'
 uriUni = URI(uniAPI)
@@ -19,8 +21,6 @@ uni_hash = JSON.parse(response)
 # options = { file_encoding: 'iso-8859-1' }
 # courses = SmarterCSV.process('db/courses.csv')
 
-University.destroy_all
-Student.destroy_all
 # Course.destroy_all
 
 uni_hash.each do |i|
