@@ -13,20 +13,3 @@
  *= require_tree .
  *= require_self
  */
- #right{
-  float: right;
-}
-
-body{
-  width: 70%;
-  margin: auto;
-}
-
-#arrange{
-  width: 102%;
-  /* margin-right: -10px; */
-}
-
-#center{
-  text-align: center;
-}
