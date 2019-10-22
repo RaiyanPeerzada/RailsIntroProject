@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'search/index'
+  get 'search/result'
+  get 'search/studentResult'
   get 'about/index'
   get 'students/index'
   get 'students/show'
@@ -18,4 +21,15 @@ Rails.application.routes.draw do
     resources :universities
   end
 
+  resources :search, only: [:index] do
+    collection do
+      get 'result'
+    end
+  end
+
+  resources :search, only: [:index] do
+    collection do
+      get 'studentResult'
+    end
+  end
 end
