@@ -1,2 +1,38 @@
 <h1>Search#studentResult</h1>
 <p>Find me in app/views/search/studentResult.html.erb</p>
+
+<h1 id="center">Search for Students</h1>
+<div class="container">
+  <h1> Students found: <%= @student_count.size %></h1>
+  <% if @students.empty? %>
+    <p>Sorry, no students found.</p>
+  <% else %>
+    <div class="d-inline-block">
+      <%= paginate @students, window: 2 %>
+    </div>
+    <%= form_tag(studentResult_search_index_path, method: "get", :class => 'd-inline-block', :id => 'right') do %>
+      <%= label_tag(:q, "Search for Student:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Student ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Degree</th>
+        </tr>
+      </thead>
+      <% @students.each do |student| %>
+        <tr>
+          <td><%=link_to student.id, student_path(student)%></td>
+          <td><%=student.fname%></td>
+          <td><%=student.lname%></td>
+          <td><%=student.degree%></td>
+        </tr>
+      <%end%>
+    </table>
+  <% end %>
+</div>

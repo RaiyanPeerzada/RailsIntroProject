@@ -3,6 +3,11 @@
 <div class="d-inline-block">
     <%= paginate @universities, window: 2 %>
 </div>
+<%= form_tag(result_search_index_path, method: "get", :class => 'd-inline-block', :id => 'right') do %>
+    <%= label_tag(:q, "Search for Universities:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
 <table class="table">
     <thead class="thead-dark">
       <tr>

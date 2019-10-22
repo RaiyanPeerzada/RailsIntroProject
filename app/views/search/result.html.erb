@@ -1,2 +1,36 @@
 <h1>Search#result</h1>
 <p>Find me in app/views/search/result.html.erb</p>
+
+<h1 id="center">Search for Universities</h1>
+<div class="container">
+  <h1> Universities found: <%= @uni_count.size %></h1>
+  <% if @universities.empty? %>
+    <p>Sorry, no university found.</p>
+  <% else %>
+    <div class="d-inline-block">
+      <%= paginate @universities, window: 2 %>
+    </div>
+    <%= form_tag(result_search_index_path, method: "get", :class => 'd-inline-block', :id => 'right') do %>
+      <%= label_tag(:q, "Search for University:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>University Name</th>
+          <th>Country</th>
+          <th>Web Page</th>
+        </tr>
+      </thead>
+      <% @universities.each do |university| %>
+        <tr>
+          <td><%=link_to university.name, university_path(university)%></td>
+          <td><%=university.country%></td>
+          <td><%=university.webpage%></td>
+        </tr>
+      <%end%>
+    </table>
+  <% end %>
+</div>
