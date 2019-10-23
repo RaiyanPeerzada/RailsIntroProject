@@ -10,6 +10,7 @@
 
 University.destroy_all
 Student.destroy_all
+
 # University data
 uniAPI = 'http://universities.hipolabs.com/search?country=United%20States'
 uriUni = URI(uniAPI)
