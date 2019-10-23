@@ -33,7 +33,8 @@ uni_hash.each do |i|
   2.times do
     university.students.build(fname: Faker::Name.first_name,
                               lname: Faker::Name.last_name,
-                              degree: Faker::Educator.degree).save
+                              degree: Faker::Educator.degree,
+                              address: Faker::Address.full_address).save
   end
 end
 
