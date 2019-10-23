@@ -10,6 +10,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Degree</th>
+        <th>Address</th>
       </tr>
     </thead>
     <% @university.students.each do |student| %>
@@ -18,6 +19,7 @@
         <td><%=student.fname%></td>
         <td><%=student.lname%></td>
         <td><%=student.degree%></td>
+        <td><%=student.address%></td>
       </tr>
     <%end%>
   </table>
